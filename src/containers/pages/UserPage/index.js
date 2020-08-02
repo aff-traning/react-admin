@@ -1,6 +1,6 @@
 import React, { useState, useEffect, Fragment } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Icon, Label, Menu, Table } from 'semantic-ui-react'
+import { Icon, Label, Menu, Table, Pagination } from 'semantic-ui-react'
 import {
   fetchUser
 } from '../../../actions/user';
@@ -29,7 +29,7 @@ const UserPage = (props) => {
 
   return (
     <Fragment>
-      <h3>Users</h3> {pagedUser.total}
+      <h3>Users({pagedUser.total})</h3> 
       <Table celled>
         <Table.Header>
           <Table.Row>
@@ -56,18 +56,16 @@ const UserPage = (props) => {
         <Table.Footer>
           <Table.Row>
             <Table.HeaderCell colSpan='5'>
-              <Menu floated='right' pagination>
-                <Menu.Item as='a' icon>
-                  <Icon name='chevron left' />
-                </Menu.Item>
-                <Menu.Item as='a'>1</Menu.Item>
-                <Menu.Item as='a'>2</Menu.Item>
-                <Menu.Item as='a'>3</Menu.Item>
-                <Menu.Item as='a'>4</Menu.Item>
-                <Menu.Item as='a' icon>
-                  <Icon name='chevron right' />
-                </Menu.Item>
-              </Menu>
+              <Pagination
+                floated='right'
+                boundaryRange={0}
+                defaultActivePage={pagedUser.page}
+                ellipsisItem={null}
+                firstItem={null}
+                lastItem={null}
+                siblingRange={1}
+                totalPages={Math.ceil(pagedUser.total/pagedUser.limit)}
+              />
             </Table.HeaderCell>
           </Table.Row>
         </Table.Footer>
