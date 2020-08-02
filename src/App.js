@@ -1,26 +1,37 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import PropTypes from 'prop-types';
 
-function App() {
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { Provider } from 'react-redux'
+import MasterLayout from './containers/layouts/MasterLayout';
+import PrivateRoute from './containers/layouts/PrivateRoute';
+import Dashboard from './containers/pages/Dashboard';
+import ProductPage from './containers/pages/ProductPage';
+import LoginPage from './containers/pages/LoginPage';
+
+function App({ store, routes }) {
+  // const Context = createContext();
+  // const { Provider, Consumer } = Context;
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <Router>
+        <Switch>
+          <Route exact path="/login" component={LoginPage} />
+          <PrivateRoute authPathRedirect="/login" >
+            <MasterLayout>
+              <Route exact path='/' component={Dashboard} />
+              <Route exact path='/product' component={ProductPage} />
+            </MasterLayout>
+          </PrivateRoute>
+        </Switch>
+      </Router>
+    </Provider>
   );
+}
+
+App.propTypes = {
+  store: PropTypes.object.isRequired,
 }
 
 export default App;
