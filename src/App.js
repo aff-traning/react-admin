@@ -9,6 +9,7 @@ import Dashboard from './containers/pages/Dashboard';
 import ProductPage from './containers/pages/ProductPage';
 import LoginPage from './containers/pages/LoginPage';
 import UserPage from './containers/pages/UserPage';
+import RolePage from './containers/pages/RolePage';
 
 function App({ store, routes }) {
   // const Context = createContext();
@@ -24,6 +25,7 @@ function App({ store, routes }) {
               <Route exact path='/' component={Dashboard} />
               <Route exact path='/products' component={ProductPage} />
               <Route exact path='/users' component={UserPage} />
+              <Route exact path='/roles' component={RolePage} />
             </MasterLayout>
           </PrivateRoute>
         </Switch>

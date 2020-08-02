@@ -41,9 +41,9 @@ const store = createStore(
 sagaMiddleware.run(appSagaWatcher);
 
 ReactDOM.render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <App store={store} locale={{ locale: 'en' }} />,
-  </React.StrictMode>,
+  // </React.StrictMode>,
   document.getElementById('root')
 );
 

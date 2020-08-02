@@ -19,6 +19,10 @@ export const SWITCH_ROLE = 'SWITCH_ROLE';
 export const USER_FETCH = 'USER_FETCH';
 export const USER_FETCH_SUCCESS = 'USER_FETCH_SUCCESS';
 
+// Role
+export const ROLE_FETCH = 'ROLE_FETCH';
+export const ROLE_FETCH_SUCCESS = 'ROLE_FETCH_SUCCESS';
+
 //Contact Module const
 export const FETCH_START = 'FETCH_START';
 export const FETCH_SUCCESS = 'FETCH_SUCCESS';
