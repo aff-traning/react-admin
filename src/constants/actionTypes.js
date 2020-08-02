@@ -15,6 +15,10 @@ export const AUTH_DISCARD_TOKEN = 'AUTH_DISCARD_TOKEN';
 export const GET_INFO_USER = 'GET_INFO_USER';
 export const SWITCH_ROLE = 'SWITCH_ROLE';
 
+// User
+export const USER_FETCH = 'USER_FETCH';
+export const USER_FETCH_SUCCESS = 'USER_FETCH_SUCCESS';
+
 //Contact Module const
 export const FETCH_START = 'FETCH_START';
 export const FETCH_SUCCESS = 'FETCH_SUCCESS';

@@ -8,6 +8,7 @@ import PrivateRoute from './containers/layouts/PrivateRoute';
 import Dashboard from './containers/pages/Dashboard';
 import ProductPage from './containers/pages/ProductPage';
 import LoginPage from './containers/pages/LoginPage';
+import UserPage from './containers/pages/UserPage';
 
 function App({ store, routes }) {
   // const Context = createContext();
@@ -21,7 +22,8 @@ function App({ store, routes }) {
           <PrivateRoute authPathRedirect="/login" >
             <MasterLayout>
               <Route exact path='/' component={Dashboard} />
-              <Route exact path='/product' component={ProductPage} />
+              <Route exact path='/products' component={ProductPage} />
+              <Route exact path='/users' component={UserPage} />
             </MasterLayout>
           </PrivateRoute>
         </Switch>

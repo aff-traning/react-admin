@@ -12,3 +12,9 @@ export const setAuthCookie = (tokenInfo) => {
   cookieExpire.setSeconds(cookieExpire.getSeconds() + parseInt(tokenInfo.expiresIn, 10));
   cookies.set('authState', { ...tokenInfo }, { path: '/', expires: cookieExpire });
 }
+
+export const getAuthToken = () => {
+  const authState = cookies.get('authState');
+
+  return `${authState.tokenType} ${authState.accessToken}`;
+}
