@@ -5,8 +5,9 @@ import * as helper from '../utils/helper';
 import { getAuthToken } from '../utils/auth';
 
 const APIs = {
-  login: `https://localhost:5001/connect/token`,
+  // login: `https://localhost:5001/connect/token`,
   users: `https://localhost:5001/api/v1/users`,
+  login: `https://test-identity.hahalolo.com/connect/token`,
 };
 
 export function* userLoginSaga(action) {
@@ -25,7 +26,8 @@ export function* userLoginSaga(action) {
         }),
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
-          Authorization: 'Basic Ym8ucm8uYXBwOmJvLnNlY3JldA==',
+          // Authorization: 'Basic Ym8ucm8uYXBwOmJvLnNlY3JldA==',
+          Authorization: 'Basic Q29yZV9BcHA6MXEydzNlKg==',
         },
       }
     );

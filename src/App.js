@@ -20,14 +20,10 @@ function App({ store, routes }) {
       <Router>
         <Switch>
           <Route exact path="/login" component={LoginPage} />
-          <MasterLayout>
-            <Route exact path="/" component={Dashboard} />
-            <Route exact path="/products" component={ProductPage} />
-          </MasterLayout>
           <PrivateRoute authPathRedirect="/login">
             <MasterLayout>
-              {/* <Route exact path='/' component={Dashboard} /> */}
-              {/* <Route exact path="/products" component={ProductPage} /> */}
+              <Route exact path='/' component={Dashboard} />
+              <Route exact path="/products" component={ProductPage} />
               <Route exact path="/users" component={UserPage} />
               <Route exact path="/roles" component={RolePage} />
             </MasterLayout>
