@@ -4,6 +4,7 @@ import { Icon, Label, Menu, Table, Pagination } from 'semantic-ui-react'
 import {
   fetchRole
 } from '../../../actions/role';
+import MasterLayout from '../../layouts/MasterLayout'
 
 const RolePage = (props) => {
 
@@ -26,46 +27,48 @@ const RolePage = (props) => {
   }
 
   return (
-    <Fragment>
-      <h3>Roles({pagedRole.total})</h3> 
-      <Table celled>
-        <Table.Header>
-          <Table.Row>
-            <Table.HeaderCell>Id</Table.HeaderCell>
-            <Table.HeaderCell>Name</Table.HeaderCell>
-            <Table.HeaderCell>Created At</Table.HeaderCell>
-          </Table.Row>
-        </Table.Header>
-
-        <Table.Body>
-          {pagedRole.items.map((item, i) => (
-            <Table.Row key={item.id}>
-              <Table.Cell>{item.id}</Table.Cell>
-              <Table.Cell>{item.name}</Table.Cell>
-              <Table.Cell>{item.createdAt}</Table.Cell>
+    <MasterLayout sidebar="roles">
+      <Fragment>
+        <h3>Roles({pagedRole.total})</h3>
+        <Table celled>
+          <Table.Header>
+            <Table.Row>
+              <Table.HeaderCell>Id</Table.HeaderCell>
+              <Table.HeaderCell>Name</Table.HeaderCell>
+              <Table.HeaderCell>Created At</Table.HeaderCell>
             </Table.Row>
-          ))}
-        </Table.Body>
+          </Table.Header>
 
-        <Table.Footer>
-          <Table.Row>
-            <Table.HeaderCell colSpan='3'>
-              <Pagination
-                floated='right'
-                boundaryRange={0}
-                defaultActivePage={pagedRole.page}
-                ellipsisItem={null}
-                firstItem={null}
-                lastItem={null}
-                siblingRange={1}
-                totalPages={Math.ceil(pagedRole.total/pagedRole.limit)}
-              />
-            </Table.HeaderCell>
-          </Table.Row>
-        </Table.Footer>
-      </Table>
-    </Fragment>
-  )
+          <Table.Body>
+            {pagedRole.items.map((item, i) => (
+              <Table.Row key={item.id}>
+                <Table.Cell>{item.id}</Table.Cell>
+                <Table.Cell>{item.name}</Table.Cell>
+                <Table.Cell>{item.createdAt}</Table.Cell>
+              </Table.Row>
+            ))}
+          </Table.Body>
+
+          <Table.Footer>
+            <Table.Row>
+              <Table.HeaderCell colSpan="3">
+                <Pagination
+                  floated="right"
+                  boundaryRange={0}
+                  defaultActivePage={pagedRole.page}
+                  ellipsisItem={null}
+                  firstItem={null}
+                  lastItem={null}
+                  siblingRange={1}
+                  totalPages={Math.ceil(pagedRole.total / pagedRole.limit)}
+                />
+              </Table.HeaderCell>
+            </Table.Row>
+          </Table.Footer>
+        </Table>
+      </Fragment>
+    </MasterLayout>
+  );
 }
 
 export default RolePage;

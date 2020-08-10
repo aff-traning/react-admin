@@ -16,12 +16,12 @@ const Container = styled.div`
     align-items: center;
 `
 
-const Sidebar = () => {
+const Sidebar = (props) => {
 
     return (
         <Container>
             <Profile />
-            <Menu />
+            <Menu sidebar={props.sidebar}/>
             <ToggleSwitch />
         </Container>
     )

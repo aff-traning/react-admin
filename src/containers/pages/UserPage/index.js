@@ -4,6 +4,7 @@ import { Icon, Label, Menu, Table, Pagination } from 'semantic-ui-react'
 import {
   fetchUser
 } from '../../../actions/user';
+import MasterLayout from '../../layouts/MasterLayout'
 
 const UserPage = (props) => {
 
@@ -28,50 +29,52 @@ const UserPage = (props) => {
   }
 
   return (
-    <Fragment>
-      <h3>Users({pagedUser.total})</h3> 
-      <Table celled>
-        <Table.Header>
-          <Table.Row>
-            <Table.HeaderCell>Id</Table.HeaderCell>
-            <Table.HeaderCell>User Name</Table.HeaderCell>
-            <Table.HeaderCell>Email</Table.HeaderCell>
-            <Table.HeaderCell>Status</Table.HeaderCell>
-            <Table.HeaderCell>Created At</Table.HeaderCell>
-          </Table.Row>
-        </Table.Header>
-
-        <Table.Body>
-          {pagedUser.items.map((item, i) => (
-            <Table.Row key={item.id}>
-              <Table.Cell>{item.id}</Table.Cell>
-              <Table.Cell>{item.userName}</Table.Cell>
-              <Table.Cell>{item.email}</Table.Cell>
-              <Table.Cell>{item.status}</Table.Cell>
-              <Table.Cell>{item.createdAt}</Table.Cell>
+    <MasterLayout sidebar="users">
+      <Fragment>
+        <h3>Users({pagedUser.total})</h3>
+        <Table celled>
+          <Table.Header>
+            <Table.Row>
+              <Table.HeaderCell>Id</Table.HeaderCell>
+              <Table.HeaderCell>User Name</Table.HeaderCell>
+              <Table.HeaderCell>Email</Table.HeaderCell>
+              <Table.HeaderCell>Status</Table.HeaderCell>
+              <Table.HeaderCell>Created At</Table.HeaderCell>
             </Table.Row>
-          ))}
-        </Table.Body>
+          </Table.Header>
 
-        <Table.Footer>
-          <Table.Row>
-            <Table.HeaderCell colSpan='5'>
-              <Pagination
-                floated='right'
-                boundaryRange={0}
-                defaultActivePage={pagedUser.page}
-                ellipsisItem={null}
-                firstItem={null}
-                lastItem={null}
-                siblingRange={1}
-                totalPages={Math.ceil(pagedUser.total/pagedUser.limit)}
-              />
-            </Table.HeaderCell>
-          </Table.Row>
-        </Table.Footer>
-      </Table>
-    </Fragment>
-  )
+          <Table.Body>
+            {pagedUser.items.map((item, i) => (
+              <Table.Row key={item.id}>
+                <Table.Cell>{item.id}</Table.Cell>
+                <Table.Cell>{item.userName}</Table.Cell>
+                <Table.Cell>{item.email}</Table.Cell>
+                <Table.Cell>{item.status}</Table.Cell>
+                <Table.Cell>{item.createdAt}</Table.Cell>
+              </Table.Row>
+            ))}
+          </Table.Body>
+
+          <Table.Footer>
+            <Table.Row>
+              <Table.HeaderCell colSpan="5">
+                <Pagination
+                  floated="right"
+                  boundaryRange={0}
+                  defaultActivePage={pagedUser.page}
+                  ellipsisItem={null}
+                  firstItem={null}
+                  lastItem={null}
+                  siblingRange={1}
+                  totalPages={Math.ceil(pagedUser.total / pagedUser.limit)}
+                />
+              </Table.HeaderCell>
+            </Table.Row>
+          </Table.Footer>
+        </Table>
+      </Fragment>
+    </MasterLayout>
+  );
 }
 
 export default UserPage;

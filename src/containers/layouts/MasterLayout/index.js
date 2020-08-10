@@ -24,7 +24,7 @@ function MasterLayout(props) {
       <>
         <GlobalStyles />
         <div>
-          <SideBar />
+          <SideBar sidebar={props.sidebar}/>
           <Main>{children}</Main>
         </div>
       </>

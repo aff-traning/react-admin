@@ -1,12 +1,12 @@
 import React from 'react';
+import MasterLayout from '../../layouts/MasterLayout'
 
 function Dashboard() {
 
   return(
-    <div>This is dashboard</div>
-    // <MasterLayout>
-    //   <div>This is dashboard</div>
-    // </MasterLayout>
+    <MasterLayout sidebar='dashboard'>
+      <div>This is dashboard</div>
+    </MasterLayout>
   )
 }
 
