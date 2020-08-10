@@ -14,7 +14,7 @@ export function* getListSupplier(action) {
       APIs.supplier,
       {
         method: 'POST',
-        body: new URLSearchParams({
+        body: JSON.stringify({
           'keyword': keyword,
           'sorting': sorting,
           'skipCount': skipCount,
@@ -24,7 +24,7 @@ export function* getListSupplier(action) {
           // 'Content-Type': 'application/x-www-form-urlencoded',
           // Authorization: 'Basic Q29yZV9BcHA6MXEydzNlKg==',
           'Content-Type': 'application/json',
-          Authorization: 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6ImF0K2p3dCJ9.eyJuYmYiOjE1OTY4NTA5NjcsImV4cCI6MTU5NjkzNzM2NywiaXNzIjoiaHR0cHM6Ly90ZXN0LWlkZW50aXR5LmhhaGFsb2xvLmNvbSIsImF1ZCI6IkNvcmUiLCJjbGllbnRfaWQiOiJDb3JlX0FwcCIsInN1YiI6IjdjN2IxNDU2LTE3NDEtYTJkMy1mZWQyLTM5ZjUzZmI2MjJkNyIsImF1dGhfdGltZSI6MTU5Njg1MDk2NywiaWRwIjoibG9jYWwiLCJlbWFpbCI6ImhhaGFsb2xvLmFmZkBnbWFpbC5jb20iLCJyb2xlIjoiQURNSU4iLCJzY29wZSI6WyJDb3JlIl0sImFtciI6WyJwd2QiXX0.auey4Xs-956wZfGuE44LGf7IfMu3sQSISH7Rcd9f5veitUL3KBL02FbqJvkFpVeGqMVTRSx0QCkFnexwbbIuiKGCu831hMxqg8pBn5O5c2TgER5Bj63im-GDAl9twG--TEQ0ZD3SYw-jKEfc7f7WHwXHtiot-Q9EQTlB9LUtINvqrQhUSWoSi0ATWtF7nuTDUhFh91DMdXuAiRNdNYFX9W6bRtrGZi-Ao9g9e0FkaiOi5jz_wboRbscC0AvT3vurUVX-HaJD86KokEXzrkqFsYVrL4RPR_yBazW-iK8mxYuRzEjjyebxhJgHd3pSimmb1iGnR3EMmFvFFN4v4PTyJQ',
+          Authorization: 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6ImF0K2p3dCJ9.eyJuYmYiOjE1OTcwMjM0ODksImV4cCI6MTU5NzEwOTg4OSwiaXNzIjoiaHR0cHM6Ly90ZXN0LWlkZW50aXR5LmhhaGFsb2xvLmNvbSIsImF1ZCI6IkNvcmUiLCJjbGllbnRfaWQiOiJDb3JlX0FwcCIsInN1YiI6IjdjN2IxNDU2LTE3NDEtYTJkMy1mZWQyLTM5ZjUzZmI2MjJkNyIsImF1dGhfdGltZSI6MTU5NzAyMzQ4OSwiaWRwIjoibG9jYWwiLCJlbWFpbCI6ImhhaGFsb2xvLmFmZkBnbWFpbC5jb20iLCJyb2xlIjoiQURNSU4iLCJzY29wZSI6WyJhZGRyZXNzIiwiZW1haWwiLCJvcGVuaWQiLCJwaG9uZSIsInByb2ZpbGUiLCJyb2xlIiwiQ29yZSIsIm9mZmxpbmVfYWNjZXNzIl0sImFtciI6WyJwd2QiXX0.n5arO9-HrTxSorEhkf81AQlwsaFLlmMONUF6Siufk2rA4pRdtdssEPLzepk-TTyG8ARxracyH5mYGU-wLLnIPpqrWpagPpEne06oyM3P7DOlgd6w2MrmldlTNzRtr_iv0WeHA1hgdk-g0vzYPwSrjqSmlqWJYCd_ig6HDfQQ8yDKh8AMrIxFfrVNihIY5TifTVnwDTWFJHTPqeSe6OCY_kOtz5Xq0uPMbF2K6EIys-K_uSrqbhwaXD9QlXjCrkcHs_H76A3ZB_YFsu-gBpX0UhYGFPsqNPNHJtFDIyjEP7-w8mnip2RCqBGRIKmlUTjb3hLGlVT9CuUwePTBmuenlg',
         },
       }
     );
@@ -36,7 +36,7 @@ export function* getListSupplier(action) {
     const parsedRes = yield Promise.resolve(res).then(_ => _.json());
     const listSupplier = {
       totalCount: parsedRes.totalCount,
-      // items: parsedRes.items,
+      items: parsedRes.items,
     };
 
     yield put(actions.setListSupplier(listSupplier));
