@@ -9,6 +9,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import allReducers from './reducers';
 import appSagaWatcher from './sagas';
+import { ThemeContextProvider } from '../src/styles/themeContext';
 
 let composeEnhancers = compose;
 
@@ -42,7 +43,7 @@ sagaMiddleware.run(appSagaWatcher);
 
 ReactDOM.render(
   // <React.StrictMode>
-    <App store={store} locale={{ locale: 'en' }} />,
+    <ThemeContextProvider><App store={store} locale={{ locale: 'en' }} /></ThemeContextProvider>,
   // </React.StrictMode>,
   document.getElementById('root')
 );

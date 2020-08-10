@@ -34,13 +34,19 @@ const Title = styled.h1`
     color: ${props => props.active ? props.theme.activeMenu : "#AAA5A5"};
 `
 
-const MenuLink = ({ title, active, icon }) => {
+const MenuLink = ({ title, active, icon, href }) => {
 
     return (
-        <Container active={active}>
-            <Span active={active} className="iconify" data-inline="false" data-icon={`mdi-light:${icon}`}></Span>
-            <Title active={active}>{title}</Title>
-        </Container>
+        // <Container active={active}>
+        //     <Span active={active} className="iconify" data-inline="false" data-icon={`mdi-light:${icon}`}></Span>
+        //     <Title active={active}>{title}</Title>
+        // </Container>
+        <a href={href}>
+            <Container active={active}>
+                <Span active={active} className="iconify" data-inline="false" data-icon={`mdi-light:${icon}`}></Span>
+                <Title active={active}>{title}</Title>
+            </Container>
+        </a>
     )
 }
 

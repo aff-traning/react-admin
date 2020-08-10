@@ -8,17 +8,17 @@ import depositData from './DepositData.json'
 
 function ProductPage(props) {
   const dispatch = useDispatch();
-  const listSupplier = async () => {
-    dispatch(getListSupplier({ keyword: null, sorting: 'name', skipCount: 0, maxResultCount: 12 }));
-  }
-  console.log('hello');
-  console.log(listSupplier);
-  console.log(depositData);
+  // const listSupplier = async () => {
+  //   dispatch(getListSupplier({ keyword: null, sorting: 'name', skipCount: 0, maxResultCount: 12 }));
+  // }
+  const listSupplier = fetch(dispatch(getListSupplier({ keyword: null, sorting: 'name', skipCount: 0, maxResultCount: 12 })));
+  console.log('list: ', listSupplier);
 
   return (
     <div>
       <NewProductBtn />
-      <button onClick={listSupplier}>Get list Supplier</button>
+      {/* <button onClick={listSupplier}>Get list Supplier</button> */}
+      <h1>Total Count: </h1>
       <Deposits title="New Products" count={2} data={depositData.active} />
       <Deposits title="Old Products" count={8} data={depositData.closed} />
     </div>
