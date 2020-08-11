@@ -18,13 +18,14 @@ function MasterLayout(props) {
 
   const context = useContext(ThemeContext);
   const { theme } = context;
+  const viewPage = useSelector(state => state.view.view);
 
   return (
     <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
       <>
         <GlobalStyles />
         <div>
-          <SideBar />
+          <SideBar sidebar={viewPage}/>
           <Main>{children}</Main>
         </div>
       </>

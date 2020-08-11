@@ -8,13 +8,13 @@ const Container = styled.div`
     width: 100%;
 `
 
-const Menu = () => {
+const Menu = (props) => {
     return (
         <Container>
-            <MenuLink title="Dashboard" icon={'home'} active />
-            <MenuLink title="Product" icon={'file-multiple'} />
-            <MenuLink title="User" icon={'gift'} />
-            <MenuLink title="Role" icon={'bank'} />
+            <MenuLink title="Dashboard" icon={'home'} href="/" active={props.sidebar === 'dashboard' ? true : ""} />
+            <MenuLink title="Product" icon={'file-multiple'} href="/products" active={props.sidebar === 'products' ? true : ""} />
+            <MenuLink title="User" icon={'gift'} href="/users" active={props.sidebar === 'users' ? true : ""} />
+            <MenuLink title="Role" icon={'bank'} href="/roles" active={props.sidebar === 'roles' ? true : ""} />
             <MenuLink title="Settings" icon={'cog'} />
         </Container>
     )
