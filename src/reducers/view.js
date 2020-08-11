@@ -6,7 +6,7 @@ import { VIEW_PAGE } from '../constants/actionTypes';
   
   export default function view(state = initialState, action) {
     let viewState = state;
-    console.log('REDUCER');
+    
     switch (action.type) {
       case VIEW_PAGE:
         viewState = {
