@@ -3,6 +3,22 @@ import {
 } from '../constants/actionTypes';
 import { useStore } from 'react-redux';
 
+const initialState = {
+  totalCount: 0,
+  items: [{
+    address: null,
+    creationTime: null,
+    creatorId: null,
+    emailAddress: null,
+    id: null,
+    lastModificationTime: null,
+    lastModifierId: null,
+    name: null,
+    phoneNumber: null,
+    webSite: null
+  }]
+}
+
 export default function list(state = [], action) {
   let listSupplierState = state;
 
