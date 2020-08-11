@@ -1,4 +1,5 @@
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux';
 import MenuLink from './MenuLink'
 import styled from 'styled-components'
 
@@ -8,13 +9,15 @@ const Container = styled.div`
     width: 100%;
 `
 
-const Menu = (props) => {
+const Menu = () => {
+    const viewPage = useSelector(state => state.view.view);
+
     return (
         <Container>
-            <MenuLink title="Dashboard" icon={'home'} href="/" active={props.sidebar === 'dashboard' ? true : ""} />
-            <MenuLink title="Product" icon={'file-multiple'} href="/products" active={props.sidebar === 'products' ? true : ""} />
-            <MenuLink title="User" icon={'gift'} href="/users" active={props.sidebar === 'users' ? true : ""} />
-            <MenuLink title="Role" icon={'bank'} href="/roles" active={props.sidebar === 'roles' ? true : ""} />
+            <MenuLink title="Dashboard" icon={'home'} href="/" active={viewPage === 'dashboard' ? true : ""} />
+            <MenuLink title="Product" icon={'file-multiple'} href="/products" active={viewPage === 'products' ? true : ""} />
+            <MenuLink title="User" icon={'gift'} href="/users" active={viewPage === 'users' ? true : ""} />
+            <MenuLink title="Role" icon={'bank'} href="/roles" active={viewPage === 'roles' ? true : ""} />
             <MenuLink title="Settings" icon={'cog'} />
         </Container>
     )

@@ -4,11 +4,15 @@ import { Icon, Label, Menu, Table, Pagination } from 'semantic-ui-react'
 import {
   fetchUser
 } from '../../../actions/user';
+import { viewPage } from "../../../actions/view";
 
 const UserPage = (props) => {
 
   // const [users, setUsers] = useState([]);
   const dispatch = useDispatch();
+  const view = 'users';
+  const viewSelected = () => dispatch(viewPage({view}));
+  viewSelected();
   const pagedUser = useSelector(state => state.user.paged);
   console.log(pagedUser);
   const params = {

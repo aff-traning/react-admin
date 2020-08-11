@@ -10,7 +10,8 @@ import { VIEW_PAGE } from '../constants/actionTypes';
     switch (action.type) {
       case VIEW_PAGE:
         viewState = {
-            view: action.payload
+            // view: action.payload
+            ...action.payload
         };
         break;
   

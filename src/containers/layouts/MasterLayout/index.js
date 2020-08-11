@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { Link } from "react-router-dom";
 import { ThemeProvider } from 'styled-components';
 import { lightTheme, darkTheme } from '../../../styles/theme';
@@ -18,14 +17,13 @@ function MasterLayout(props) {
 
   const context = useContext(ThemeContext);
   const { theme } = context;
-  const viewPage = useSelector(state => state.view.view);
 
   return (
     <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
       <>
         <GlobalStyles />
         <div>
-          <SideBar sidebar={viewPage}/>
+          <SideBar />
           <Main>{children}</Main>
         </div>
       </>

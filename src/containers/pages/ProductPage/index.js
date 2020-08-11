@@ -9,13 +9,14 @@ import depositData from './DepositData.json'
 function ProductPage() {
   const dispatch = useDispatch();
   const view = 'products';
-  console.log('view: ', view);
-  const viewPage2 = () => dispatch(viewPage({view}));
+  const viewSelected = () => dispatch(viewPage({view}));
+  viewSelected();
+  console.log('View now: ', useSelector(state => state.view.view));
 
   return (
     <div>
       <NewProductBtn />
-      <button onClick={viewPage2}>click</button>
+      {/* <button onClick={viewPage2}>click</button> */}
       <Deposits title="New Products" count={2} data={depositData.active} />
       <Deposits title="Old Products" count={8} data={depositData.closed} />
     </div>

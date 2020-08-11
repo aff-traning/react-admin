@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-
+import { NavLink } from 'react-router-dom';
 
 
 const Container = styled.div`
@@ -35,14 +35,21 @@ const Title = styled.h1`
 `
 
 const MenuLink = ({ title, active, icon, href }) => {
+    const url = '' + href;
 
     return (
-        <a href={href}>
+        // <a href={href}>
+        //     <Container active={active}>
+        //         <Span active={active} className="iconify" data-inline="false" data-icon={`mdi-light:${icon}`}></Span>
+        //         <Title active={active}>{title}</Title>
+        //     </Container>
+        // </a>
+        <NavLink to={url}>
             <Container active={active}>
                 <Span active={active} className="iconify" data-inline="false" data-icon={`mdi-light:${icon}`}></Span>
                 <Title active={active}>{title}</Title>
             </Container>
-        </a>
+        </NavLink>
     )
 }
 

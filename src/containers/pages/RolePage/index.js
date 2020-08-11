@@ -4,10 +4,14 @@ import { Icon, Label, Menu, Table, Pagination } from 'semantic-ui-react'
 import {
   fetchRole
 } from '../../../actions/role';
+import { viewPage } from "../../../actions/view";
 
 const RolePage = (props) => {
 
   const dispatch = useDispatch();
+  const view = 'roles';
+  const viewSelected = () => dispatch(viewPage({view}));
+  viewSelected();
   const pagedRole = useSelector(state => state.role.paged);
   const params = {
     page: 1,
