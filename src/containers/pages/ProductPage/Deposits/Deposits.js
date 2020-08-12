@@ -38,8 +38,11 @@ const Deposits = ({ title, data, count }) => {
             <Title>{title}<DepositsCount>{count}</DepositsCount></Title>
             <SortingBar />
             {data.map(deposit => (
-                <Deposit data={deposit} key={deposit.property.address.street} />
+                <Deposit data={deposit} key={deposit.id} />
             ))}
+            {/* {data.map(deposit => (
+                <Deposit data={deposit} key={deposit.property.address.street} />
+            ))} */}
             <AllDepositsBtn title={title} />
         </Container>
     )

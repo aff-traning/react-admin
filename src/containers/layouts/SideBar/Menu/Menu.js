@@ -2,7 +2,7 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import MenuLink from './MenuLink'
 import styled from 'styled-components'
-
+import { getListSupplier } from '../../../../actions/product'
 
 const Container = styled.div`
     margin-top: 2rem;

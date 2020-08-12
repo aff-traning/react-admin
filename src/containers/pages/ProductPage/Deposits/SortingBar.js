@@ -21,7 +21,8 @@ const Property = styled(Text)`
 `
 
 const MoveInDate = styled(Text)`
-    width: 15%;
+    /* width: 15%; */
+    width: 25%;
 `
 
 const Rent = styled(Text)`
@@ -39,13 +40,24 @@ const Status = styled(Text)`
 const SortingBar = () => {
     return (
         <Container>
-            <Property>Property</Property>
-            <MoveInDate>Move In Date</MoveInDate>
-            <Rent>Rent</Rent>
-            <Deposit>Deposit</Deposit>
-            <Status>Status</Status>
+            <Property>Name</Property>
+            <MoveInDate>Email</MoveInDate>
+            <Rent>Phone</Rent>
+            <Deposit>Address</Deposit>
+            <Status>Website</Status>
         </Container>
     )
 }
+// const SortingBar = () => {
+//     return (
+//         <Container>
+//             <Property>Property</Property>
+//             <MoveInDate>Move In Date</MoveInDate>
+//             <Rent>Rent</Rent>
+//             <Deposit>Deposit</Deposit>
+//             <Status>Status</Status>
+//         </Container>
+//     )
+// }
 
 export default SortingBar
