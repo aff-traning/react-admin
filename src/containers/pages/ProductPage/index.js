@@ -8,8 +8,7 @@ import depositData from './DepositData.json'
 
 function ProductPage(props) {
   const dispatch = useDispatch();
-  const accessToken = 'Bearer ' + useSelector(state => state.auth.accessToken);
-  const listSupplier = async () => dispatch(getListSupplier({ keyword: null, sorting: 'name', skipCount: 0, maxResultCount: 12, accessToken: accessToken }));
+  const listSupplier = async () => dispatch(getListSupplier({ keyword: null, sorting: 'name', skipCount: 0, maxResultCount: 12 }));
   let listSup = useSelector(state => state.list);
   console.log('list3: ', listSup);
   useEffect(() => {
