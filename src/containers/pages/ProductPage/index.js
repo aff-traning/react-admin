@@ -10,7 +10,7 @@ function ProductPage(props) {
   const dispatch = useDispatch();
   const accessToken = 'Bearer ' + useSelector(state => state.auth.accessToken);
   const listSupplier = async () => dispatch(getListSupplier({ keyword: null, sorting: 'name', skipCount: 0, maxResultCount: 12, accessToken: accessToken }));
-  // const result = listSupplier();
+  const result = listSupplier();
   // console.log('list1: ', listSupplier);
   // console.log('list2: ', result);
   let listSup = useSelector(state => state.list);
