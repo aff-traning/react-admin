@@ -34,7 +34,7 @@ const Title = styled.h1`
     color: ${props => props.active ? props.theme.activeMenu : "#AAA5A5"};
 `
 
-const MenuLink = ({ title, active, icon, href }) => {
+const MenuLink = ({ title, active, icon, href, onClick }) => {
 
     return (
         // <Container active={active}>
