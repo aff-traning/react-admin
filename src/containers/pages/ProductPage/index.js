@@ -10,7 +10,6 @@ function ProductPage(props) {
   const dispatch = useDispatch();
   const listSupplier = async () => dispatch(getListSupplier({ keyword: null, sorting: 'name', skipCount: 0, maxResultCount: 12 }));
   let listSup = useSelector(state => state.list);
-  console.log('list3: ', listSup);
   useEffect(() => {
     listSupplier()
     return () => {

@@ -23,7 +23,6 @@ export default function list(state = initialState, action) {
 
   switch (action.type) {
     case PRODUCT_SET_LIST_SUPPLIER:
-      console.log('Product Reducer: ', state, action.payload);
       listSupplierState = {
         ...action.payload,
       };

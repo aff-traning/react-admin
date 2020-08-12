@@ -10,7 +10,7 @@ const APIs = {
 export function* getListSupplier(action) {
   try {
     const { keyword, sorting, skipCount, maxResultCount } = action.payload;
-    console.log('SAGA BEFORE CALL API');
+    
     const res = yield fetch(
       APIs.supplier,
       {
@@ -31,7 +31,7 @@ export function* getListSupplier(action) {
     if (!res || res.status !== 200) {
       throw Object({ message: 'Thông tin không đúng' });
     }
-    console.log('SAGA AFTER CALL API');
+    
     const parsedRes = yield Promise.resolve(res).then(_ => _.json());
     const listSupplier = {
       totalCount: parsedRes.totalCount,
