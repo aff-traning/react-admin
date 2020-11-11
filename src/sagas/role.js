@@ -4,8 +4,10 @@ import * as actions from '../actions';
 import * as helper from '../utils/helper';
 import { getAuthToken } from '../utils/auth';
 
+const { REACT_APP_IDENTITY_API } = process.env;
+
 const APIs = {
-  roles: `https://localhost:5001/api/v1/roles`,
+  roles: `${REACT_APP_IDENTITY_API}/api/v1/roles`,
 };
 
 export function* roleFetchSaga(action) {
@@ -43,4 +45,3 @@ export function* roleFetchSaga(action) {
 export default function* roleSagaWatcher() {
   yield takeLeading(actionTypes.ROLE_FETCH, roleFetchSaga);
 }
-

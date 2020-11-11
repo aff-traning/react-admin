@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
+import { Container } from 'semantic-ui-react';
 
 function MasterLayout(props) {
   const { children, ...rest } = props;
@@ -11,9 +12,9 @@ function MasterLayout(props) {
   // }));
 
   return (
-    <div>
+    <Container>
       {children}
-    </div>
+    </Container>
   )
 }
 

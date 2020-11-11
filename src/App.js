@@ -8,8 +8,8 @@ import PrivateRoute from './containers/layouts/PrivateRoute';
 import Dashboard from './containers/pages/Dashboard';
 import ProductPage from './containers/pages/ProductPage';
 import LoginPage from './containers/pages/LoginPage';
-import UserPage from './containers/pages/UserPage';
-import RolePage from './containers/pages/RolePage';
+import { UserPage, UserRolePage } from './containers/pages/UserPage';
+import { RolePage, RoleUserPage } from './containers/pages/RolePage';
 
 function App({ store, routes }) {
   // const Context = createContext();
@@ -25,7 +25,9 @@ function App({ store, routes }) {
               <Route exact path='/' component={Dashboard} />
               <Route exact path='/products' component={ProductPage} />
               <Route exact path='/users' component={UserPage} />
+              <Route exact path='/users/:userId/roles' component={UserRolePage} />
               <Route exact path='/roles' component={RolePage} />
+              <Route exact path='/roles/:roleId/users' component={RoleUserPage} />
             </MasterLayout>
           </PrivateRoute>
         </Switch>

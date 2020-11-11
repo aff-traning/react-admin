@@ -4,9 +4,11 @@ import * as actions from '../actions';
 import * as helper from '../utils/helper';
 import { getAuthToken } from '../utils/auth';
 
+const { REACT_APP_IDENTITY_API } = process.env;
+
 const APIs = {
-  login: `https://localhost:5001/connect/token`,
-  users: `https://localhost:5001/api/v1/users`,
+  login: `${REACT_APP_IDENTITY_API}/connect/token`,
+  users: `${REACT_APP_IDENTITY_API}/api/v1/users`,
 };
 
 export function* userLoginSaga(action) {
