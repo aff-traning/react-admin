@@ -1,7 +1,10 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { Container } from 'semantic-ui-react';
+
+import LeftSidebar from '../LeftSidebar';
+import RightSidebar from '../RightSidebar';
+import TopMenu from './TopMenu';
+import MainContent from './MainContent';
 
 function MasterLayout(props) {
   const { children, ...rest } = props;
@@ -12,9 +15,18 @@ function MasterLayout(props) {
   // }));
 
   return (
-    <Container>
-      {children}
-    </Container>
+    <>
+      <LeftSidebar />
+      <div className="pusher pushable">
+        <RightSidebar />
+        <div className="pusher">
+          <TopMenu />
+          <MainContent>
+            {children}
+          </MainContent>
+        </div>
+      </div>
+    </>
   )
 }
 
